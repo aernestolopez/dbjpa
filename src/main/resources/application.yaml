@@ -1,0 +1,28 @@
+spring:
+  application:
+    name: dbjpa
+  datasource:
+    #url: jdbc:mysql://localhost:3306/users
+    url: jdbc:mysql://localhost:3306/books
+    username: sokas
+    password: test
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+    operations-sorter: alpha
+  api-docs:
+    path: /v3/api-docs
+  openapi:
+    info:
+      title: API Usuarios dbjpa
+      version: 1.0.0
+      description: Documentación de mi proyecto Spring Boot
