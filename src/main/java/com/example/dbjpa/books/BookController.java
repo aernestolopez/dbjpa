@@ -6,6 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/books")
@@ -56,5 +57,13 @@ public class BookController {
 
         List<BookDTO> foundBooks = bookService.searchBooks(author, title, year);
        return ResponseEntity.status(HttpStatus.OK).body(foundBooks);
+    }
+
+    @PatchMapping("/patchBook/{id}")
+    private ResponseEntity<BookDTO> patchBook(@PathVariable Long id, @RequestBody Map<String, Object> fields){
+        BookDTO patchBook = bookService.patchBook(id, fields);
+
+        return ResponseEntity.status(HttpStatus.OK).body(patchBook);
+
     }
 }
